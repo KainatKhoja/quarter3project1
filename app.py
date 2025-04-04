@@ -53,7 +53,7 @@ if uploaded_files:
 
             with col2:
                 if st.button(f"Fill missing values for {file.name}"):
-                    numeric_cols = df.select_detypes(includes=['number']).columns
+                    numeric_cols = df.select_detypes(include=['number']).columns
                     df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].means())
                     st.write("✅Missing values have been filled!")
 
@@ -79,7 +79,7 @@ if uploaded_files:
                 mine_type = "text/csv"
 
             elif conversion_type == "Excel":
-                df.to.to_excel(buffer, index=False)
+                df.to_excel(buffer, index=False)
                 file_name = file.name.replace(file_ext, ".xlsx")
                 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 buffer.seak(0) 
